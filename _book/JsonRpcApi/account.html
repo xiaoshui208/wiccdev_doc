@@ -1,0 +1,557 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>1.2: Account · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="wallet.html" />
+    
+    
+    <link rel="prev" href="message.md" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    [1. WaykiChain JSON RPC API]
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="message.md">
+            
+                <span>
+            
+                    
+                    1.1: JSON RPC Message
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.2" data-path="account.html">
+            
+                <a href="account.html">
+            
+                    
+                    1.2: Account
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="wallet.html">
+            
+                <a href="wallet.html">
+            
+                    
+                    1.3: Wallet
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="block.html">
+            
+                <a href="block.html">
+            
+                    
+                    1.4: Block
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >1.2: Account</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h3 id="listaddr">listaddr</h3>
+<h3 id="getnewaddress">getnewaddress</h3>
+<h3 id="registaccounttx">registaccounttx</h3>
+<h3 id="registaccounttxraw">registaccounttxraw</h3>
+<h3 id="sendtoaddress">sendtoaddress</h3>
+<h3 id="sendtoaddresswithfee">sendtoaddresswithfee</h3>
+<h3 id="sendtoaddressraw">sendtoaddressraw</h3>
+<h3 id="getaccountinfo">getaccountinfo</h3>
+<h3 id="getbalance">getbalance</h3>
+<hr>
+<h3 id="listaddr">listaddr</h3>
+<p>Return Array containing address,balance,haveminerkey,regidinformation.</p>
+<p><strong>Parameters</strong></p>
+<p>none</p>
+<p><strong>Returns</strong></p>
+<p>rawtx, String - &#x521B;&#x5EFA;&#x4EA4;&#x6613;&#x7B7E;&#x540D;&#x4EA7;&#x751F;&#x7684;&#x7B7E;&#x540D;&#x5B57;&#x6BB5; </p>
+<p><strong>Example</strong></p>
+<pre><code class="lang-json"><span class="hljs-comment">// Request </span>
+curl -v -u wikichain:admin --data-binary <span class="hljs-string">&apos;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:&quot;curltext&quot;,&quot;method&quot;:&quot;listaddr&quot;}&apos;</span> -H <span class="hljs-string">&apos;content-type:application/json;&apos;</span> http:<span class="hljs-comment">//127.0.0.1:6968</span>
+
+<span class="hljs-comment">// Response</span>
+{
+  <span class="hljs-string">&quot;result&quot;</span>:
+  [
+    {
+      <span class="hljs-string">&quot;addr&quot;</span>:<span class="hljs-string">&quot;WR4fyUnQKhrxgXuMnjMCea6TNjK29GgHnY&quot;</span>,
+      <span class="hljs-string">&quot;balance&quot;</span>:<span class="hljs-number">0.00000000</span>,
+      <span class="hljs-string">&quot;haveminerkey&quot;</span>:<span class="hljs-literal">false</span>,
+      <span class="hljs-string">&quot;regid&quot;</span>:<span class="hljs-string">&quot; &quot;</span>
+    },
+    {
+      <span class="hljs-string">&quot;addr&quot;</span>:<span class="hljs-string">&quot;WWnVCpn9j1udKcXFeHzPs55FL7yy7LYDSq&quot;</span>,
+      <span class="hljs-string">&quot;balance&quot;</span>:<span class="hljs-number">0.00000000</span>,
+      <span class="hljs-string">&quot;haveminerkey&quot;</span>:<span class="hljs-literal">false</span>,
+      <span class="hljs-string">&quot;regid&quot;</span>:<span class="hljs-string">&quot; &quot;</span>
+    }
+  ],
+  <span class="hljs-string">&quot;error&quot;</span>:<span class="hljs-literal">null</span>,
+  <span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-string">&quot;curltext&quot;</span>
+}
+</code></pre>
+<hr>
+<h3 id="getnewaddress">getnewaddress</h3>
+<p>Returns a new  address for receiving payments. If [isminer] is ture will create aminer key,otherwise will only return a new address.</p>
+<p><strong>Parameters</strong></p>
+<p>isminer, Boolean - &#x662F;&#x5426;&#x4E3A;&#x65F7;&#x5DE5;&#xFF0C;(&#x9009;&#x586B;&#xFF0C;&#x5EFA;&#x8BAE;&#x4E00;&#x822C;&#x7528;&#x6237;&#x4E0D;&#x8981;&#x586B;&#x5199;&#xFF0C;&#x82E5;&#x4E0D;&#x586B;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;fasle&#xFF09;</p>
+<p><strong>Returns</strong></p>
+<p>addr, String - &#x7EF4;&#x57FA;&#x5E01;&#x5730;&#x5740;
+minerpubkey, String - &#x65F7;&#x5DE5;pubkey,&#x5982;&#x679C;&#x6CA1;&#x6709;&#x65F7;&#x5DE5;pubkey&#xFF0C;&#x5219;&#x4E3A;no</p>
+<p><strong>Example</strong></p>
+<pre><code class="lang-json"><span class="hljs-comment">// Request</span>
+curl -u wikichain:admin --data-binary <span class="hljs-string">&apos;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;getnewaddress&quot;,&quot;params&quot;:[],&quot;id&quot;:174633286}&apos;</span> -H <span class="hljs-string">&apos;content-type:application/json;&apos;</span> http:<span class="hljs-comment">//127.0.0.1:6968</span>
+
+<span class="hljs-comment">// Response</span>
+{
+  <span class="hljs-string">&quot;result&quot;</span>:
+  {
+    <span class="hljs-string">&quot;addr&quot;</span>:<span class="hljs-string">&quot;wb5QZWr7PpTsoL6wBYsojfM3G4yaD5x1yA&quot;</span>,
+    <span class="hljs-string">&quot;minerpubkey&quot;</span>:<span class="hljs-string">&quot;no&quot;</span>
+  },
+  <span class="hljs-string">&quot;error&quot;</span>:<span class="hljs-literal">null</span>,
+  <span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">174633286</span>
+}
+</code></pre>
+<hr>
+<h3 id="registaccounttx">registaccounttx</h3>
+<p>register secure account</p>
+<p><strong>Requires unlocked wallet</strong></p>
+<p>Y</p>
+<p><strong>Parameters</strong></p>
+<ol>
+<li>address, String - &#x9700;&#x8981;&#x6FC0;&#x6D3B;&#x7684;&#x5730;&#x5740;</li>
+<li>fee, Long - &#x6FC0;&#x6D3B;&#x4F7F;&#x7528;&#x7684;&#x5C0F;&#x8D39;&#xFF0C;&#x5E26;&#x4E86;10&#x7684;8&#x6B21;&#x65B9;&#x5C0F;&#x6570;&#x4F4D;</li>
+</ol>
+<p><strong>Returns</strong></p>
+<p>hash, String - &#x4EA4;&#x6613;hash </p>
+<p><strong>Example</strong></p>
+<pre><code class="lang-json"><span class="hljs-comment">// Request</span>
+curl -u wikichain:admin --data-binary <span class="hljs-string">&apos;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:&quot;curltext&quot;,&quot;method&quot;:&quot;registaccounttx&quot;,&quot;params&quot;:[&quot;WR4fyUnQKhrxgXuMnjMCea6TNjK29GgHnY&quot;,1000000]}&apos;</span> -H <span class="hljs-string">&apos;content-type:application/json;&apos;</span> http:<span class="hljs-comment">//127.0.0.1:6968</span>
+
+<span class="hljs-comment">// Response</span>
+{
+  <span class="hljs-string">&quot;hash&quot;</span> : <span class="hljs-string">&quot;b93c02997cb71210b9b25969247416a7d31bd803526078f247db4624c14ed340&quot;</span>
+}
+</code></pre>
+<hr>
+<h3 id="registaccounttxraw">registaccounttxraw</h3>
+<p>create a register account transaction</p>
+<p><strong>Requires unlocked wallet</strong></p>
+<p>Y</p>
+<p><strong>Parameters</strong></p>
+<ol>
+<li>fee, BigInteger - &#x6FC0;&#x6D3B;&#x4F7F;&#x7528;&#x7684;&#x5C0F;&#x8D39;&#xFF0C;&#x5E26;&#x4E86;10&#x7684;8&#x6B21;&#x65B9;&#x5C0F;&#x6570;&#x4F4D;</li>
+<li>height, BigInteger - &#x6FC0;&#x6D3B;&#x65F6;&#x7684;&#x533A;&#x5757;&#x9AD8;&#x5EA6;</li>
+<li>publickey, String - &#x6FC0;&#x6D3B;&#x8D26;&#x6237;&#x7684;&#x516C;&#x94A5;</li>
+<li>minerpublickey&#xFF0C; String </li>
+</ol>
+<p><strong>Returns</strong></p>
+<p>hash, String - &#x4EA4;&#x6613;hash </p>
+<p><strong>Example</strong></p>
+<pre><code class="lang-json"><span class="hljs-comment">// Request</span>
+curl -u wikichain:admin --data-binary <span class="hljs-string">&apos;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:&quot;curltext&quot;,&quot;method&quot;:&quot;registaccounttx&quot;,&quot;params&quot;:[&quot;WR4fyUnQKhrxgXuMnjMCea6TNjK29GgHnY&quot;,1000000]}&apos;</span> -H <span class="hljs-string">&apos;content-type:application/json;&apos;</span> http:<span class="hljs-comment">//127.0.0.1:6968</span>
+
+<span class="hljs-comment">// Response</span>
+{
+  <span class="hljs-string">&quot;hash&quot;</span> : <span class="hljs-string">&quot;b93c02997cb71210b9b25969247416a7d31bd803526078f247db4624c14ed340&quot;</span>
+}
+</code></pre>
+<hr>
+<h3 id="sendtoaddress">sendtoaddress</h3>
+<p>Send an amount to a given address. The amount is a real andis rounded to the nearest 0.00000001. Returns the transaction ID <txhash>if successful.</txhash></p>
+<p><strong>Parameters</strong></p>
+<ol>
+<li>src address, String - &#x53D1;&#x9001;&#x65B9;&#x5730;&#x5740;&#xFF08;Optional&#xFF09;&#xFF0C;</li>
+<li>recv address, String - &#x63A5;&#x6536;&#x65B9;&#x5730;&#x5740;</li>
+<li>amout, BigInteger - &#x53D1;&#x9001;&#x91D1;&#x989D; &#xFF08;&#x5B9E;&#x9645;&#x53D1;&#x9001;&#x91D1;&#x989D;&#x4E58;&#x4EE5;10&#x7684;8&#x6B21;&#x65B9;&#xFF09;</li>
+</ol>
+<p><strong>Returns</strong></p>
+<p>hash, String - &#x4EA4;&#x6613;hash </p>
+<p><strong>Example</strong></p>
+<pre><code class="lang-json"><span class="hljs-comment">// Request </span>
+curl -u wikichain:admin --data-binary <span class="hljs-string">&apos;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;sendtoaddress&quot;,&quot;params&quot;:[&quot;wTwrWser78mEa22f8mHfiHGrdKysTv8eBU&quot;,&quot;wXscdWVUN9irrLGvJJDZiaBoKXvat6Pqa9&quot;,1000000000],&quot;id&quot;:168141569}&apos;</span> -H <span class="hljs-string">&apos;content-type:application/json;&apos;</span> http:<span class="hljs-comment">//127.0.0.1:6968</span>
+
+<span class="hljs-comment">// Response</span>
+{
+  <span class="hljs-string">&quot;result&quot;</span>:
+  {
+    <span class="hljs-string">&quot;hash&quot;</span>:<span class="hljs-string">&quot;c8260a08723192c74fb2025093bb876e6532baa5af952e6f7758a40c7f61c81f&quot;</span>
+  },
+  <span class="hljs-string">&quot;error&quot;</span>:<span class="hljs-literal">null</span>,
+  <span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">168141569</span>
+}
+</code></pre>
+<hr>
+<h3 id="sendtoaddresswithfee">sendtoaddresswithfee</h3>
+<p>Send an amount to a given address. The amount is a real andis rounded to the nearest 0.00000001. Returns the transaction ID <txhash>if successful.</txhash></p>
+<p><strong>Parameters</strong></p>
+<ol>
+<li>src address, String - &#x53D1;&#x9001;&#x65B9;&#x5730;&#x5740;&#xFF08;Optional&#xFF09;</li>
+<li>recv address, String - &#x63A5;&#x6536;&#x65B9;&#x5730;&#x5740;</li>
+<li>amout, BigInteger - &#x53D1;&#x9001;&#x91D1;&#x989D; &#xFF08;&#x5B9E;&#x9645;&#x53D1;&#x9001;&#x91D1;&#x989D;&#x4E58;&#x4EE5;10&#x7684;8&#x6B21;&#x65B9;&#xFF09;</li>
+<li>fee&#xFF0C; BigInteger - &#x8F6C;&#x8D26;&#x7684;&#x5C0F;&#x8D39; &#xFF08;&#x5B9E;&#x9645;&#x8F6C;&#x8D26;&#x7684;&#x5C0F;&#x8D39;&#x4E58;&#x4EE5;10&#x7684;8&#x6B21;&#x65B9;&#xFF09;</li>
+</ol>
+<p><strong>Returns</strong></p>
+<p>hash, String - &#x4EA4;&#x6613;hash </p>
+<p><strong>Example</strong></p>
+<pre><code class="lang-json"><span class="hljs-comment">// Request </span>
+curl -u wikichain:admin --data-binary <span class="hljs-string">&apos;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;sendtoaddress&quot;,&quot;params&quot;:[&quot;wTwrWser78mEa22f8mHfiHGrdKysTv8eBU&quot;,&quot;wXscdWVUN9irrLGvJJDZiaBoKXvat6Pqa9&quot;,1000000000,10000],&quot;id&quot;:168141569}&apos;</span> -H <span class="hljs-string">&apos;content-type:application/json;&apos;</span> http:<span class="hljs-comment">//127.0.0.1:6968</span>
+
+<span class="hljs-comment">// Response</span>
+{
+  <span class="hljs-string">&quot;result&quot;</span>:
+  {
+    <span class="hljs-string">&quot;hash&quot;</span>:<span class="hljs-string">&quot;c8260a08723192c74fb2025093bb876e6532baa5af952e6f7758a40c7f61c81f&quot;</span>
+  },
+  <span class="hljs-string">&quot;error&quot;</span>:<span class="hljs-literal">null</span>,
+  <span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">168141569</span>
+}
+</code></pre>
+<hr>
+<h3 id="sendtoaddressraw">sendtoaddressraw</h3>
+<p>Send an amount to a given address. The amount is a real andis rounded to the nearest 0.00000001. Returns the transaction ID <txhash>if successful.</txhash></p>
+<p><strong>Parameters</strong></p>
+<ol>
+<li>src address, String - &#x53D1;&#x9001;&#x65B9;&#x5730;&#x5740;&#xFF08;Optional&#xFF09;</li>
+<li>recv address, String - &#x63A5;&#x6536;&#x65B9;&#x5730;&#x5740;</li>
+<li>amout, BigInteger - &#x53D1;&#x9001;&#x91D1;&#x989D; &#xFF08;&#x5B9E;&#x9645;&#x53D1;&#x9001;&#x91D1;&#x989D;&#x4E58;&#x4EE5;10&#x7684;8&#x6B21;&#x65B9;&#xFF09;</li>
+<li>fee&#xFF0C; BigInteger - &#x8F6C;&#x8D26;&#x7684;&#x5C0F;&#x8D39; &#xFF08;&#x5B9E;&#x9645;&#x8F6C;&#x8D26;&#x7684;&#x5C0F;&#x8D39;&#x4E58;&#x4EE5;10&#x7684;8&#x6B21;&#x65B9;&#xFF09;</li>
+</ol>
+<p><strong>Returns</strong></p>
+<p>rawtx, String - &#x521B;&#x5EFA;&#x4EA4;&#x6613;&#x7B7E;&#x540D;&#x4EA7;&#x751F;&#x7684;&#x7B7E;&#x540D;&#x5B57;&#x6BB5; </p>
+<p><strong>Example</strong></p>
+<pre><code class="lang-json"><span class="hljs-comment">// Request </span>
+curl -u wikichain:admin --data-binary <span class="hljs-string">&apos;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;sendtoaddressraw&quot;,&quot;params&quot;:[10000,100000,&quot;wTwrWser78mEa22f8mHfiHGrdKysTv8eBU&quot;,&quot;wXscdWVUN9irrLGvJJDZiaBoKXvat6Pqa9&quot;,243038],&quot;id&quot;:403309340}&apos;</span> -H <span class="hljs-string">&apos;content-type:application/json;&apos;</span> http:<span class="hljs-comment">//127.0.0.1:6968</span>
+
+<span class="hljs-comment">// Response</span>
+{
+  <span class="hljs-string">&quot;result&quot;</span>:
+  {
+    <span class="hljs-string">&quot;rawtx&quot;</span>:<span class="hljs-string">&quot;03018de95e0480c855010486db2601cd10858c20004630440220733eb4610e5cbb599ef409fd871cb1a999af2743f4d87b2c1f8e792c0c901f3a022000ce48fea9250faf25cc6a4bf19ec098a249a4f89116e2f033e60921c26fef55&quot;</span>
+  },
+  <span class="hljs-string">&quot;error&quot;</span>:<span class="hljs-literal">null</span>,
+  <span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">403309340</span>
+}
+</code></pre>
+<hr>
+<h3 id="getaccountinfo">getaccountinfo</h3>
+<p>Returns the account information  with the given address.</p>
+<p><strong>Parameters</strong></p>
+<ol>
+<li>address, String - &#x7EF4;&#x57FA;&#x5E01;&#x5730;&#x5740;</li>
+</ol>
+<p><strong>Returns</strong></p>
+<ol>
+<li>Address, String - &#x7EF4;&#x57FA;&#x5E01;&#x5730;&#x5740;</li>
+<li>KeyID, String - &#x7EF4;&#x57FA;&#x5E01;&#x516C;&#x94A5;&#x4E24;&#x6B21;sha&#x4E4B;&#x540E;&#x5F97;&#x5230;&#x7684;pubKeyHash</li>
+<li>RegID, String - &#x7EF4;&#x57FA;&#x5E01;&#x5730;&#x5740;&#x5BF9;&#x5E94;&#x7684;&#x6FC0;&#x6D3B;id&#x53F7;</li>
+<li>PublicKey, String - &#x7EF4;&#x57FA;&#x5E01;&#x5730;&#x5740;&#x516C;&#x94A5;</li>
+<li>MinerPKey, String - &#x65F7;&#x5DE5;&#x7684;Key (&#x4E00;&#x822C;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x5FFD;&#x7565;&#x8BE5;&#x5B57;&#x6BB5;)</li>
+<li>Balance, BigInteger - &#x7EF4;&#x57FA;&#x5E01;&#x5730;&#x5740;&#x7684;&#x4F59;&#x989D;,(&#x5B9E;&#x9645;&#x91D1;&#x989D;&#x4E58;&#x4EE5;10&#x7684;8&#x6B21;&#x65B9;&#xFF09;</li>
+<li>Votes, BigInteger - &#x6295;&#x7968;&#x6570;&#x91CF;&#xFF08;&#x6D89;&#x53CA;Dpos&#x6295;&#x7968;&#x7684;&#x53C2;&#x6570;&#xFF09;</li>
+<li>UpdateHeight&#xFF0C; BigInteger - TAB (&#x4E00;&#x822C;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x5FFD;&#x7565;&#x8BE5;&#x5B57;&#x6BB5;)</li>
+<li>voteFundList, ArrayList - &#x6295;&#x7968;&#x5217;&#x8868;&#xFF0C;</li>
+<li>postion, String - &#x6240;&#x5728;&#x4F4D;&#x7F6E;&#xFF0C;&#xFF08;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x6FC0;&#x6D3B;&#x5219;&#x662F;inwallet&#xFF0C;&#x5982;&#x679C;&#x6FC0;&#x6D3B;&#x4E86;&#x8FD9;&#x662F;&#x5728;inblock)</li>
+</ol>
+<p><strong>Example</strong></p>
+<pre><code class="lang-json"><span class="hljs-comment">// Request </span>
+curl -u wikichain:admin --data-binary <span class="hljs-string">&apos;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;getaccountinfo&quot;,&quot;params&quot;:[&quot;wTMrkcgbfFWEWQxBs1XHvGgyTkd5JenQxP&quot;],&quot;id&quot;:440924659}&apos;</span> -H <span class="hljs-string">&apos;content-type:application/json;&apos;</span> http:<span class="hljs-comment">//127.0.0.1:6968</span>
+
+<span class="hljs-comment">// Response</span>
+{
+  <span class="hljs-string">&quot;result&quot;</span>:
+  {
+    <span class="hljs-string">&quot;Address&quot;</span>:<span class="hljs-string">&quot;wTMrkcgbfFWEWQxBs1XHvGgyTkd5JenQxP&quot;</span>,
+    <span class="hljs-string">&quot;KeyID&quot;</span>:<span class="hljs-string">&quot;54cf13450d208867450785fca1ccba78813a9028&quot;</span>,
+    <span class="hljs-string">&quot;RegID&quot;</span>:<span class="hljs-string">&quot;131232-1&quot;</span>,
+    <span class="hljs-string">&quot;PublicKey&quot;</span>:<span class="hljs-string">&quot;02dae8a12b4b02da6d8bad5d2b04ac23fa8709fbf1016abb4cbed8303a695ab4d5&quot;</span>,
+    <span class="hljs-string">&quot;MinerPKey&quot;</span>:<span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-string">&quot;Balance&quot;</span>:<span class="hljs-number">499889929</span>,
+    <span class="hljs-string">&quot;Votes&quot;</span>:<span class="hljs-number">0</span>,
+    <span class="hljs-string">&quot;UpdateHeight&quot;</span>:<span class="hljs-number">0</span>,
+    <span class="hljs-string">&quot;voteFundList&quot;</span>:[],
+    <span class="hljs-string">&quot;postion&quot;</span>:<span class="hljs-string">&quot;inblock&quot;</span>
+  },
+  <span class="hljs-string">&quot;error&quot;</span>:<span class="hljs-literal">null</span>,
+  <span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">440924659</span>
+}
+</code></pre>
+<hr>
+<h3 id="getbalance">getbalance</h3>
+<p>Returns the account information  with the given address.</p>
+<p><strong>Parameters</strong></p>
+<ol>
+<li>address, String - &#x672C;&#x94B1;&#x5305;&#x91CC;&#x7EF4;&#x57FA;&#x5E01;&#x5730;&#x5740; (Optional, &#x82E5;&#x4E0D;&#x586B;&#x5199;&#x5219;&#x4E3A;&#x672C;&#x94B1;&#x5305;&#x5185;&#x6240;&#x6709;&#x4F59;&#x989D;)</li>
+</ol>
+<p><strong>Returns</strong></p>
+<p>Balance, BigDecimal - &#x7EF4;&#x57FA;&#x5E01;&#x5730;&#x5740;&#x7684;&#x4F59;&#x989D;,(&#x8BE5;&#x503C;&#x4E3A;&#x5B9E;&#x9645;&#x91D1;&#x989D;&#xFF0C;&#x6CA1;&#x6709;&#x4E58;&#x4EE5;10&#x7684;8&#x6B21;&#x65B9;) </p>
+<p><strong>Example</strong></p>
+<pre><code class="lang-json"><span class="hljs-comment">// Request </span>
+curl -v -u wikichain:admin --data-binary <span class="hljs-string">&apos;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:&quot;curltext&quot;,&quot;method&quot;:&quot;getbalance&quot;,&quot;params&quot;:[&quot;WR4fyUnQKhrxgXuMnjMCea6TNjK29GgHnY&quot;]}&apos;</span> -H <span class="hljs-string">&apos;content-type:application/json;&apos;</span> http:<span class="hljs-comment">//127.0.0.1:6968</span>
+
+<span class="hljs-comment">// Response</span>
+{
+  <span class="hljs-string">&quot;result&quot;</span>: 
+  {
+    <span class="hljs-string">&quot;balance&quot;</span>: <span class="hljs-number">1.00000000</span>
+  },
+  <span class="hljs-string">&quot;error&quot;</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;curltext&quot;</span>
+}
+</code></pre>
+<p><strong>Comment</strong></p>
+<p>&#x8BE5;&#x65B9;&#x6CD5;&#x53EA;&#x80FD;&#x67E5;&#x8BE2;&#x672C;&#x94B1;&#x5305;&#x5730;&#x5740;&#xFF0C;&#x800C;&#x4E14;&#x6539;&#x5730;&#x5740;&#x5FC5;&#x987B;&#x8981;&#x6709;&#x91D1;&#x989D;&#x8F6C;&#x5165;&#x7684;&#x8BB0;&#x5F55;&#x65F6;&#x624D;&#x80FD;&#x67E5;&#x8BE2;&#xFF0C; &#x67E5;&#x8BE2;&#x8D26;&#x53F7;&#x4FE1;&#x606F;&#x65F6;&#x5C3D;&#x91CF;&#x4F7F;&#x7528; getaccountinfo &#x65B9;&#x6CD5;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="message.md" class="navigation navigation-prev " aria-label="Previous page: 1.1: JSON RPC Message">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="wallet.html" class="navigation navigation-next " aria-label="Next page: 1.3: Wallet">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"1.2: Account","level":"1.2.2","depth":2,"next":{"title":"1.3: Wallet","level":"1.2.3","depth":2,"path":"JsonRpcApi/wallet.md","ref":"JsonRpcApi/wallet.md","articles":[]},"previous":{"title":"1.1: JSON RPC Message","level":"1.2.1","depth":2,"path":"JsonRpcApi/message.md","ref":"JsonRpcApi/message.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"JsonRpcApi/account.md","mtime":"2018-10-31T12:59:27.139Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-31T12:38:17.735Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
